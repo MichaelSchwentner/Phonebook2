@@ -6,9 +6,9 @@ class Datasource {
 
     fun getPhonebookList(): MutableList<PhonebookItem> {
         return mutableListOf(
-            PhonebookItem("Eser", "+49 176 456 334 23"),
-            PhonebookItem("Michael", "+49 177 355 778 23"),
-            PhonebookItem("Pete", "+49 178 228 274 82")
+            PhonebookItem("Eser", " 176 456 334 23"),
+            PhonebookItem("Michael", " 177 355 778 23"),
+            PhonebookItem("Pete", " 178 228 274 82")
         )
     }
 }
