@@ -19,7 +19,13 @@ class MainActivity : AppCompatActivity() {
         val datasource = Datasource()
         phonebookList = datasource.getPhonebookList()
 
-        val phonebookAdapter = PhonebookAdapter(phonebookList)
+        val deletePhone = { position: PhonebookItem ->
+            //phonebookList.remove(position)
+            deleteItem(position)
+        }
+
+
+        val phonebookAdapter = PhonebookAdapter(phonebookList, deletePhone)
         binding.phonebookRecycler.adapter = phonebookAdapter
 
         binding.addButton.setOnClickListener {
@@ -29,6 +35,18 @@ class MainActivity : AppCompatActivity() {
 /*        supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setLogo(R.drawable.ic_launcher_background)
         supportActionBar?.setDisplayUseLogoEnabled(true)*/
+    }
+
+    //Number delete
+/*    private fun deleteNumberItem(adapter: PhonebookAdapter, item: PhonebookItem) {
+        val position = phonebookList.indexOf(item)
+        phonebookList.remove(item)
+        adapter.notifyItemRemoved(position)
+    }*/
+
+    //Number delete
+    fun deleteItem(position: PhonebookItem){
+        phonebookList.remove(position)
     }
 
     private fun addPhonebookItem(adapter: PhonebookAdapter) {
